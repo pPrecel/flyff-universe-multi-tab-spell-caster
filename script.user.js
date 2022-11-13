@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Flyff Universe Multi-Tab Spell Caster
 // @namespace    pPrecel
-// @version      1.0
+// @version      2.0
 // @description  Helpful tool for the web browser version of the Flyff Universe to cast spells from another tab.
 // @author       pPrecel
 // @website      https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster
@@ -13,49 +13,69 @@
 (function () {
     "use strict";
 
+    const zeroCode = 48;
+    const nineCode = 57;
+    const shiftCode = 16;
+    const altCode = 18;
+    const slachCode = 191;
+    const singleQouteCode = 222;
+
     const channel = new BroadcastChannel('spellcaster');
 
-    function onKeydown(event) {
-      switch (event.keyCode) {
-          case 191: // /
-              channel.addEventListener ('message', onMessage);
-              alert('Listener configured! Use "ctrl + <number>" combination in another tab to manage your slave.');
-              break;
-          case 17: // ctrl
-              // ignore ctrl event
-              break;
-          default:
-              forwardKeyboardEvent(event);
-              break;
-      }
+    function configAndRun(runFn) {
+        return function(event) {
+            let code = event.keyCode
+            if (code == slachCode) {
+                channel.addEventListener('message', fireSpell);
+                alert('Listener configured! Use "ctrl + <number>" combination in another tab to manage your slave.');
+            } else if (code == singleQouteCode) {
+                channel.removeEventListener('message', fireSpell);
+                alert('Listener disabled!');
+            } else {
+                runFn(event);
+            }
+        }
     }
 
-    function onMessage(event) {
+    function commonKeyForward(type) {
+        return function(event) {
+            let code = event.keyCode
+            if ( isNumber(code) || isCtrlAltOrShift(code) ){
+                forwardKeyboardEvent(type, event);
+            }
+        }
+    }
+
+    function isNumber(code) {
+        return code >= zeroCode && code <= nineCode
+    }
+
+    function isCtrlAltOrShift(code) {
+        return code >= shiftCode && code <= altCode
+    }
+
+    function fireSpell(event) {
         var data = JSON.parse(event.data);
 
-        // press key down and up - simulate such behavior
-        document.querySelector("canvas").dispatchEvent(new KeyboardEvent("keydown", data));
-        document.querySelector("canvas").dispatchEvent(new KeyboardEvent("keyup", data));
+        document.querySelector("canvas").dispatchEvent(new KeyboardEvent(data.type, data));
     }
 
-    function forwardKeyboardEvent(event) {
-        if (!event.ctrlKey) {
-            return;
-        }
-
+    function forwardKeyboardEvent(type, event) {
         channel.postMessage(JSON.stringify({
+            "type": type,
             "key": event.key,
             "keyCode": event.keyCode,
             "which": event.which,
             "code": event.code,
             "location": event.location,
-            "altKey": false,
-            "ctrlKey": false,
-            "metaKey": false,
-            "shiftKey": false,
+            "altKey": event.altKey,
+            "ctrlKey": event.ctrlKey,
+            "metaKey": event.metaKey,
+            "shiftKey": event.shiftKey,
             "repeat": false
         }));
     }
 
-    document.addEventListener('keydown', onKeydown, true);
+    document.addEventListener('keydown', configAndRun(commonKeyForward("keydown")), true);
+    document.addEventListener('keyup', commonKeyForward("keyup"), true);
 })();
