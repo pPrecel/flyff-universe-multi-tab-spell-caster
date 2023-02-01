@@ -47,7 +47,7 @@
             if ( 
                     isNumber(code) || 
                     isCtrlAltOrShift(code) ||
-                    isNumpadNumberCode(code) ||
+                    isNumpadNumber(code) ||
                     isFunctionKey(code) ||
                     (code == 90)// Z for follow
             ){
