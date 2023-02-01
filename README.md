@@ -7,7 +7,7 @@ Use this tool to cast your slave's spells from the tab where you play your maste
 ## Installation
 
 1. Install the [Tampermonkey](https://www.tampermonkey.net/) in your favorite web browser.
-2. Go to this [file](https://raw.githubusercontent.com/doodlefudge/enhanced-flyff-universe-multi-tab-spell-caster/flyff-universe-multi-tab-spell-caster/main/script.user.js) location and install it. Tampermonkey will automatically detect it.
+2. Go to this [file](https://raw.githubusercontent.com/doodlefudge/enhanced-flyff-universe-multi-tab-spell-caster/main/script.user.js) location and install it. Tampermonkey will automatically detect it.
 3. Enjoy.
 
 ## Usage
