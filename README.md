@@ -26,4 +26,4 @@ You can disable, previously enabled, spells forwarding without relaunching the w
 3. The good idea would be to set the slave's skills on the `ctrl+number` combination to avoid clicking spells on both chars simultaneously.
 
 
-Credits to @pPrecel for his amazing work on this.
+Credits to [@pPrecel](https://github.com/pPrecel) for his amazing work on this.
