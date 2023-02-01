@@ -15,20 +15,24 @@
 
     const zeroCode = 48;
     const nineCode = 57;
+    const zeroNumpadCode = 96;
+    const nineNumpadCode = 105;
+    const f1Code = 112;
+    const f10Code = 121;
     const shiftCode = 16;
     const altCode = 18;
-    const slachCode = 191;
-    const singleQouteCode = 222;
+    const homeCode = 36;
+    const endCode = 35;
 
     const channel = new BroadcastChannel('spellcaster');
 
     function configAndRun(runFn) {
         return function(event) {
             let code = event.keyCode
-            if (code == slachCode) {
+            if (code == homeCode) {
                 channel.addEventListener('message', fireSpell);
-                alert('Listener configured! Use "ctrl + <number>" combination in another tab to manage your slave.');
-            } else if (code == singleQouteCode) {
+                alert('Listener configured! Use "ctrl + <number>", Fn Keys, or NumPad key combinations in another tab to manage your slave.');
+            } else if (code == endCode) {
                 channel.removeEventListener('message', fireSpell);
                 alert('Listener disabled!');
             } else {
@@ -40,7 +44,13 @@
     function commonKeyForward(type) {
         return function(event) {
             let code = event.keyCode
-            if ( isNumber(code) || isCtrlAltOrShift(code) ){
+            if ( 
+                    isNumber(code) || 
+                    isCtrlAltOrShift(code) ||
+                    isNumpadNumberCode(code) ||
+                    isFunctionKey(code) ||
+                    (code == 90)// Z for follow
+            ){
                 forwardKeyboardEvent(type, event);
             }
         }
@@ -48,6 +58,14 @@
 
     function isNumber(code) {
         return code >= zeroCode && code <= nineCode
+    }
+    
+    function isNumpadNumber(code) {
+        return code >= zeroNumpadCode && code <= nineNumpadCode
+    }
+    
+    function isFunctionKey(code) {
+        return code >= f1Code && code <= f10Code
     }
 
     function isCtrlAltOrShift(code) {
