@@ -14,7 +14,7 @@ Use this tool to cast your slave's spells from the tab where you play your maste
 
 1. In the first tab login into your slave account and click the `home` symbol on the keyboard. The tool will communicate that it's ready for instructions.
 2. In the second tab login into the master char that you would play. Now you can manage the first account passing the right key combination (key number).
-3. This is useful for using [PowerToys](https://aka.ms/installpowertoys) "Always on Top" feature so that your slave RM can be on top of your main window character in FlyFF.
+
 ## Disable spells forwarding
 
 You can disable, previously enabled, spells forwarding without relaunching the web tab by clicking the `end` key.
@@ -24,3 +24,4 @@ You can disable, previously enabled, spells forwarding without relaunching the w
 1. Slaves should follow master char. You can do it by targeting the master one and pressing `z` on your keyboard.
 2. Split your screen between two account tabs. It would give you more control over both chars. Remember this tool is much safer to use than any bot because there is no auto-magic. Still, the game can tell you to react to the captcha.
 3. The good idea would be to set the slave's skills on the `ctrl+number` combination to avoid clicking spells on both chars simultaneously.
+4. This is useful for using [PowerToys](https://aka.ms/installpowertoys) "Always on Top" feature so that your slave RM can be on top of your main window character in FlyFF.
