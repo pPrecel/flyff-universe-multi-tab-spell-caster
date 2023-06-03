@@ -5,7 +5,7 @@
 // @description  Helpful tool for the web browser version of the Flyff Universe to cast spells from another tab.
 // @author       pPrecel, doodlefudge
 // @website      https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster
-// @include      https://universe.flyff.com/play
+// @include      https://universe.flyff.com/play*
 // @grant        GM_log
 // @license      MIT
 // ==/UserScript==
