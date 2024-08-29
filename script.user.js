@@ -26,26 +26,65 @@
 
     const channel = new BroadcastChannel('spellcaster');
 
+    window.addEventListener('load', () => {
+        addButton('sbutton', 's', addEventListener, {position: 'absolute', left: '0.1%', top:'0.1%', 'z-index': 3});
+        addButton('ubutton', 'u', removeEventListener, {position: 'absolute', left: '0.6%', top:'0.1%', 'z-index': 3});
+        addButton('hbutton', 'h', hideButtons, {position: 'absolute', left: '1.2%', top:'0.1%', 'z-index': 3});
+    })
+
+    function addButton(buttonID, text, onclick, cssObj) {
+        let button = document.createElement('button'), btnStyle = button.style;
+        document.body.appendChild(button);
+        button.id = buttonID;
+        button.innerHTML = text;
+        button.onclick = onclickFuncWithCanvasFocus(onclick);
+        Object.keys(cssObj).forEach(key => btnStyle[key] = cssObj[key]);
+
+        return button
+    }
+
     function configAndRun(runFn) {
         return function(event) {
-            let code = event.keyCode
+            let code = event.keyCode;
             if (code == homeCode) {
-                channel.addEventListener('message', fireSpell);
-                alert('Listener configured! Use "ctrl + <number>", Fn Keys, or NumPad key combinations in another tab to manage your slave.');
+                addEventListener();
             } else if (code == endCode) {
-                channel.removeEventListener('message', fireSpell);
-                alert('Listener disabled!');
+                removeEventListener();
             } else {
                 runFn(event);
             }
         }
     }
 
+    // run onclick func and then focus again on canvas
+    function onclickFuncWithCanvasFocus(onclick) {
+        return function(){
+            onclick();
+            document.getElementById("canvas").focus();
+        }
+    }
+
+    function hideButtons() {
+        document.getElementById('sbutton').style.visibility = 'hidden';
+        document.getElementById('ubutton').style.visibility = 'hidden';
+        document.getElementById('hbutton').style.visibility = 'hidden';
+    }
+
+    function addEventListener() {
+        channel.addEventListener('message', fireSpell);
+        alert('Slave listener configured! Use <number>, ctrl + <number>, Fn Keys, or NumPad key combinations in another tab to manage your slave.');
+    }
+
+    function removeEventListener() {
+        channel.removeEventListener('message', fireSpell);
+        alert('Slave listener disabled!');
+    }
+
     function commonKeyForward(type) {
         return function(event) {
             let code = event.keyCode
-            if ( 
-                    isNumber(code) || 
+            if (
+                    isNumber(code) ||
                     isCtrlAltOrShift(code) ||
                     isNumpadNumber(code) ||
                     isFunctionKey(code) ||
@@ -59,11 +98,11 @@
     function isNumber(code) {
         return code >= zeroCode && code <= nineCode
     }
-    
+
     function isNumpadNumber(code) {
         return code >= zeroNumpadCode && code <= nineNumpadCode
     }
-    
+
     function isFunctionKey(code) {
         return code >= f1Code && code <= f10Code
     }
