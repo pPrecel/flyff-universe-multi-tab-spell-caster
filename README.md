@@ -1,6 +1,6 @@
 # Flyff universe multi-tab spell caster
 
-<img style="display: block; margin-left: auto; margin-right: auto;" src="./images/buffpang_1040x1040.png" alt="drawing" width="200"/>
+<img src="./images/buffpang_1040x1040.png" alt="drawing" width="200"/>
 
 A helpful tool for the web browser version of the Flyff Universe to cast spells from another tab.
 
@@ -10,7 +10,7 @@ Use this tool to cast your slave's spells from the tab where you play your maste
 
 Install the `flyff universe multi-tab spell caster` in the chrome browser
 
->**Note:** if you look for version for other browsers install older version of the plugin [here](https://raw.githubusercontent.com/pPrecel/flyff-universe-multi-tab-spell-caster/main/tampermonkey/README.md).
+>**Note:** if you look for version for other browsers install older version of the plugin [here](https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster/blob/main/tampermonkey/README.md).
 
 ## Usage
 
