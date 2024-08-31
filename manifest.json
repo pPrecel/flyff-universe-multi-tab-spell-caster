@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Flyff Universe Multi Tab Spell Caster",
+    "name": "Flyff Universe Multi-Tab Spell Caster",
     "version": "1.0.0",
     "description": "Helpful plugin for the web browser version of the Flyff Universe to cast spells from another tab",
     "icons": {
