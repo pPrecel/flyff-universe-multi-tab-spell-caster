@@ -29,4 +29,3 @@ Install the `flyff universe multi-tab spell caster` in the chrome browser
 1. Slaves should follow master char. You can do it by targeting the master one and pressing `z` on your keyboard.
 2. Split your screen between two account tabs. It would give you more control over both chars. Remember this tool is much safer to use than any bot because there is no auto-magic. Still, the game can tell you to react to the captcha.
 3. The good idea would be to set the slave's skills on the `ctrl+number` combination to avoid clicking spells on both chars simultaneously.
-4. This is useful for using [PowerToys](https://aka.ms/installpowertoys) "Always on Top" feature so that your slave RM can be on top of your main window character in FlyFF.
