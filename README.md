@@ -1,6 +1,6 @@
 # Flyff universe multi-tab spell caster
 
-<img src="./images/buffpang_1040x1040.png" alt="drawing" width="200"/>
+<img src="./assets/buffpang_1040x1040.png" alt="drawing" width="200"/>
 
 A helpful tool for the web browser version of the Flyff Universe to cast spells from another tab.
 
