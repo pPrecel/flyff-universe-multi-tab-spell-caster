@@ -1,31 +1,33 @@
 {
-    "manifest_version": 3,
-    "name": "Flyff Universe Multi-Tab Spell Caster",
-    "version": "1.0.0",
-    "description": "Helpful plugin for the web browser version of the Flyff Universe to cast spells from another tab",
-    "homepage_url": "https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster",
-    "icons": {
-      "48": "images/buffpang_48x48.png",
-      "128": "images/buffpang_128x128.png"
-    },
-    "permissions": ["tabs"],
-    "action": {
-        "default_popup": "popup.html"
-    },
-    "content_scripts": [
-        {
-            "js": [
-                "content.js"
-            ],
-            "matches": [
-                "https://universe.flyff.com/play*"
-            ]
-        }
-    ],
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "flyffuniversemultitabspellcaster@pPrecel.com",
-            "strict_min_version": "130.0"
-        }
+  "manifest_version": 3,
+  "name": "Flyff Universe Multi-Tab Spell Caster",
+  "version": "1.0.0",
+  "description": "Helpful plugin for the web browser version of the Flyff Universe to cast spells from another tab",
+  "homepage_url": "https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster",
+  "icons": {
+    "48": "images/buffpang_48x48.png",
+    "128": "images/buffpang_128x128.png"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://universe.flyff.com/play*"
+      ]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "flyffuniversemultitabspellcaster@pPrecel.com",
+      "strict_min_version": "130.0"
     }
   }
+}
