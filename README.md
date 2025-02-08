@@ -8,21 +8,24 @@ Use this tool to cast your slave's spells from the tab where you play your maste
 
 ## Installation
 
-Install the [flyff universe multi-tab spell caster](https://chromewebstore.google.com/detail/flyff-universe-multi-tab/jdkdlbkhhhfhimlabeknoolfiinallah) in the Chrome (or Chrome-based like Brave) browser.
+Install the `flyff universe multi-tab spell caster` for:
+
+* [Chrome](https://chromewebstore.google.com/detail/flyff-universe-multi-tab/jdkdlbkhhhfhimlabeknoolfiinallah) (or Chrome-based like Brave) browser
+* Firefox (WIP)
 
 >**Note:** if you look for version for other browsers install older version of the plugin [here](https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster/blob/main/tampermonkey/README.md).
 
 ## Usage
 
-1. In the first tab login into your slave account and click the extension icon in the top right corner of the browser. Then click the `Repeat spells in this tab` button to start repeating spells in this tab:
+1. In the first tab login into your slave account and click the extension icon in the top right corner of the browser. Then click the `Repeat spells in this tab` button to switch role type to `SLAVE` and start repeating spells in this tab:
 
-    ![enabled_popup](./assets/enabled_popup.png)
+    ![slave_popup](./assets/slave_popup.png)
 
-2. In the second tab login into the master char that you would play. Make sure that in this tab plugin is disabled:
+2. In the second tab login into the master char that you would play. Make sure that in this tab plugin role is set to the `MASTER`:
 
-    ![disabled_popup](./assets/disabled_popup.png)
+    ![master_popup](./assets/master_popup.png)
 
-3. You can disable, previously enabled, spells forwarding without relaunching the web tab by clicking the `Stop repeating in this tab` button in the extension.
+3. You can switch between roles without relaunching the web tab by clicking the `Stop repeating in this tab` button in the extension.
 
 ## Hints&Tips
 

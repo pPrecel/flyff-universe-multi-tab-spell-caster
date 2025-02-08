@@ -1,30 +1,20 @@
 VERSION=1.0.0
 
-BIN ?= $(PWD)/bin
-$(BIN):
-	@echo creating bin folder...
-	mkdir -p $(BIN)
-	@echo ""
-
 .PHONY: cleanup-release
-cleanup-release: $(BIN)
+cleanup-release:
 	@echo cleaning up...
-	rm -f fumtsc-$(VERSION).zip
-	rm -rf $(BIN)/*
+	rm -f fumtsc-chrome-$(VERSION).zip
+	rm -f fumtsc-firefox-$(VERSION).zip
 	@echo ""
 
 .PHONY: release
 release: cleanup-release
-	@echo making bin folder...
-	cp *.json $(BIN)
-	cp *.css $(BIN)
-	cp *.js $(BIN)
-	cp *.html $(BIN)
-	cp -r images $(BIN)/images
+	@echo zipping for chrome...
+	@bash -c "cd chrome; zip -vr ../fumtsc-chrome-$(VERSION).zip * -x \"*.DS_Store\""
 	@echo ""
 
-	@echo zipping...
-	@bash -c "cd $(BIN); zip -vr ../fumtsc-$(VERSION).zip * -x \"*.DS_Store\""
+	@echo zipping for firefox...
+	@bash -c "cd firefox; zip -vr ../fumtsc-firefox-$(VERSION).zip * -x \"*.DS_Store\""
 	@echo ""
 
-	@echo output folder: fumtsc-$(VERSION).zip
+	@echo output folders: fumtsc-chrome-$(VERSION).zip, fumtsc-firefox-$(VERSION).zip
