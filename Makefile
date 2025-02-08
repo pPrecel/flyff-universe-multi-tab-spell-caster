@@ -1,14 +1,24 @@
-VERSION=1.0.0
+VERSION=1.1.0
 
 .PHONY: cleanup-release
 cleanup-release:
 	@echo cleaning up...
-	rm -f fumtsc-chrome-$(VERSION).zip
-	rm -f fumtsc-firefox-$(VERSION).zip
+	rm -f fumtsc-chrome-*.zip
+	rm -f fumtsc-firefox-*.zip
+	@echo ""
+
+.PHONY: upgrade-manifest-version
+upgrade-manifest-version:
+	@echo upgrading firefox manifest version...
+	@yq -p json -o json -i ".version=\"$(VERSION)\"" firefox/manifest.json
+	@echo ""
+
+	@echo upgrading chrome manifest version...
+	@yq -p json -o json -i ".version=\"$(VERSION)\"" chrome/manifest.json
 	@echo ""
 
 .PHONY: release
-release: cleanup-release
+release: cleanup-release upgrade-manifest-version
 	@echo zipping for chrome...
 	@bash -c "cd chrome; zip -vr ../fumtsc-chrome-$(VERSION).zip * -x \"*.DS_Store\""
 	@echo ""
