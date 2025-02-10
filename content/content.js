@@ -14,6 +14,7 @@ const channel = new BroadcastChannel('spellcaster');
 addListener();
 
 function addListener() {
+    // https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browsers
     var isFirefox = typeof InstallTrigger !== 'undefined';
     var isChrome = !!window.chrome;
 
