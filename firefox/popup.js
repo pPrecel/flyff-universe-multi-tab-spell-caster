@@ -16,8 +16,19 @@ function otherTabPopup() {
     statusText.textContent='UNSUPPORTED PAGE'
     statusText.style='color: red;';
 
+    let redirectText=document.createElement('button');
+    redirectText.textContent='play now';
+
+    let redirectLink=document.createElement('a');
+    redirectLink.setAttribute("href","https://universe.flyff.com/play");
+    redirectLink.setAttribute("target", "_blank");
+
+    redirectLink.appendChild(redirectText);
+
     let statusDiv=document.getElementById('status');
     statusDiv.appendChild(statusText);
+    
+    document.body.appendChild(redirectLink);
 }
 
 function flyffTabPopup(isEnabled) {

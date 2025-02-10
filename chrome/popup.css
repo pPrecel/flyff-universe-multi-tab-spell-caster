@@ -1,8 +1,13 @@
+html {
+    height: 180px;
+    width: 220px;
+}
+
 body {
     background-image: url(images/popup_background.jpg);
     background-size: cover;
     text-align: center;
-    width: 200px;
+    width: 220px;
     height: 160px;
     margin: 0%;
 }
