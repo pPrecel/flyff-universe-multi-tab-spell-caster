@@ -12,7 +12,7 @@
 })();
 
 function otherTabPopup() {
-    let statusText=document.createElement('h2');
+    let statusText=document.createElement('h1');
     statusText.textContent='UNSUPPORTED PAGE'
     statusText.style='color: red;';
 
@@ -32,10 +32,10 @@ function otherTabPopup() {
 }
 
 function flyffTabPopup(isEnabled) {
-    let roleText = document.createElement('h3');
+    let roleText = document.createElement('h2');
     roleText.id = 'roleText';
 
-    let statusText = document.createElement('h2');
+    let statusText = document.createElement('h1');
     statusText.id = 'statusText';
 
     let statusDiv = document.getElementById('status');
