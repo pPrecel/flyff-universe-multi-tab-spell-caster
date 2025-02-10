@@ -1,4 +1,6 @@
 # release
 *.zip
+chrome/*
+firefox/*
 !chrome/manifest.json
 !firefox/manifest.json
