@@ -1,15 +1,28 @@
 (async () => {
-    const [tab] = await browser.tabs.query({active: true, lastFocusedWindow: true});
+    const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
     const regex = 'https://universe.flyff.com/play*';
     if (tab.url.match(regex) == null) {
         otherTabPopup();
         return
     }
 
-    const response = await browser.tabs.sendMessage(tab.id, {action: 'get'});
+    const response = sendMessage();
 
     flyffTabPopup(response.enabled);
 })();
+
+async function sendMessage() {
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    var isChrome = !!window.chrome;
+
+    if (isFirefox) {
+        const response = await browser.tabs.sendMessage(tab.id, {action: 'get'});
+        return response;
+    } else if (isChrome) {
+        const response = await chrome.tabs.sendMessage(tab.id, {action: 'get'});
+        return response;
+    }
+}
 
 function otherTabPopup() {
     let statusText=document.createElement('h1');
@@ -27,7 +40,7 @@ function otherTabPopup() {
 
     let statusDiv=document.getElementById('status');
     statusDiv.appendChild(statusText);
-    
+
     document.body.appendChild(redirectLink);
 }
 
@@ -64,8 +77,8 @@ function updateStatusAndButton(isEnabled) {
 }
 
 async function changeStatus() {
-    const [tab] = await browser.tabs.query({active: true, lastFocusedWindow: true});
-    const response = await browser.tabs.sendMessage(tab.id, {action: 'set'});
+    const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+    const response = await chrome.tabs.sendMessage(tab.id, {action: 'set'});
 
     updateStatusAndButton(response.enabled);
 }

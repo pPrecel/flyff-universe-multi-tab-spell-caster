@@ -11,7 +11,18 @@ var listen = false;
 
 const channel = new BroadcastChannel('spellcaster');
 
-browser.runtime.onMessage.addListener(handleMessage);
+addListener();
+
+function addListener() {
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    var isChrome = !!window.chrome;
+
+    if (isFirefox) {
+        browser.runtime.onMessage.addListener(handleMessage);
+    } else if (isChrome) {
+        chrome.runtime.onMessage.addListener(handleMessage);
+    }
+}
 
 function handleMessage(message, _sender, sendResponse) {
     if (message.action=="get") {

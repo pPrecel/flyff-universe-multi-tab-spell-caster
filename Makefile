@@ -19,9 +19,15 @@ upgrade-manifest-version:
 
 .PHONY: release
 release: cleanup-release upgrade-manifest-version
+	@echo composing chrome dir...
+	@cp -r content/* chrome/
+
 	@echo zipping for chrome...
 	@bash -c "cd chrome; zip -vr ../fumtsc-chrome-$(VERSION).zip * -x \"*.DS_Store\""
 	@echo ""
+
+	@echo composing firefox dir...
+	@cp -r content/* firefox/
 
 	@echo zipping for firefox...
 	@bash -c "cd firefox; zip -vr ../fumtsc-firefox-$(VERSION).zip * -x \"*.DS_Store\""
