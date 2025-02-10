@@ -11,7 +11,7 @@ Use this tool to cast your slave's spells from the tab where you play your maste
 Install the `flyff universe multi-tab spell caster` for:
 
 * [Chrome](https://chromewebstore.google.com/detail/flyff-universe-multi-tab/jdkdlbkhhhfhimlabeknoolfiinallah) (or Chrome-based like Brave) browser
-* Firefox (WIP)
+* [Firefox](https://addons.mozilla.org/firefox/addon/flyff-universe-multi-tab-spell)
 
 >**Note:** if you look for version for other browsers install older version of the plugin [here](https://github.com/pPrecel/flyff-universe-multi-tab-spell-caster/blob/main/tampermonkey/README.md).
 
